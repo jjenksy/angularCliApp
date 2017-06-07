@@ -7,5 +7,5 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
-
+// where we tell angular our main bootstrap file
 platformBrowserDynamic().bootstrapModule(AppModule);
