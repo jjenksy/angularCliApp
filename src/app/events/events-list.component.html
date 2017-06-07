@@ -1,9 +1,17 @@
-<div>
-  <h1>Upcoming events</h1>
-  <hr>
-  <h2>Name: {{event.name}}</h2>
-  <h4>Date: {{event.date}}</h4>
-  <h4>Time: {{event.time}}</h4>
-  <h4>Price: {{event.price}}</h4>
-  <h4>Location: {{event.location.address}},{{event.location.city}},{{event.location.country}}</h4>
-</div>
+
+<!--when placing a bracket [event] around the html it passes the event the the @Input in the angular module-->
+<!--(eventClick) is the binding to the event emmited from the app-event-thumbnail module-->
+<!--#thumbnail creates a template variable that can be accessed by the parent-->
+<h1>Upcoming events</h1>
+<hr>
+<app-event-thumbnail
+  #thumbnail
+  (eventClick)="handleEventClicked($event)"
+  [event]="event1">
+
+</app-event-thumbnail>
+<!--test for template variable-->
+<p-panel header="Title" [toggleable]="true">
+  <button pButton type="button" (click)="thumbnail.logFoo()" label="Log Some Foo"></button>
+</p-panel>
+

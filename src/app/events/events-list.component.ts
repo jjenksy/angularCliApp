@@ -6,11 +6,12 @@ import {Component} from '@angular/core';
 
 
 @Component({
-  selector: 'app-events-list',
-  templateUrl : 'events-list.component.html'
+  selector: 'app-events-list', // selector is the html selector to reference
+  templateUrl : 'events-list.component.html', // the template url
+  styleUrls: ['events-list.component.css']
 })
 export class EventsListComponent {
-  event = {
+  event1 = {
     id : 1,
     name : 'Johnson Macdanielson',
     date : '09/26/2078',
@@ -21,5 +22,9 @@ export class EventsListComponent {
       city : 'Austin',
       country : 'USA'
     }
+  };
+
+  handleEventClicked(event) {
+    console.log(event);
   }
 }

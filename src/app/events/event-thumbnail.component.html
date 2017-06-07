@@ -1,0 +1,10 @@
+<p-panel header="Title" [toggleable]="true">
+
+  <h2>Name: {{event.name}}</h2>
+  <h4>Date: {{event.date}}</h4>
+  <h4>Time: {{event.time}}</h4>
+  <h4>Price: {{event.price}}</h4>
+  <h4>Location: {{event.location.address}},{{event.location.city}},{{event.location.country}}</h4>
+  <button pButton type="button" (click)="onclick()" label="Click"></button>
+
+</p-panel>
