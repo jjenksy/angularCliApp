@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {EventService} from './shared/event.service';
+import {ToastrService} from '../common/toastr.service';
 /**
  * Created by johnjenkins on 6/7/17.
  */
@@ -6,25 +8,25 @@ import {Component} from '@angular/core';
 
 
 @Component({
-  selector: 'app-events-list', // selector is the html selector to reference
   templateUrl : 'events-list.component.html', // the template url
   styleUrls: ['events-list.component.css']
 })
-export class EventsListComponent {
-  event1 = {
-    id : 1,
-    name : 'Johnson Macdanielson',
-    date : '09/26/2078',
-    time : '10:00 am',
-    price: 599.99,
-    location : {
-      address: '1056 DT',
-      city : 'Austin',
-      country : 'USA'
-    }
-  };
+export class EventsListComponent implements OnInit {
+  events: any;
+  /**
+   * Contructor to inject my services
+   * @param eventService the eventService injected
+   */
+  constructor(private eventService: EventService, private toastr: ToastrService) {
 
-  handleEventClicked(event) {
-    console.log(event);
+  }
+
+  // lifecycle hook that gets call at component load time
+  ngOnInit(): void {
+    this.events = this.eventService.getEvents();
+  }
+
+  handleEventClicked(event: any) {
+    this.toastr.success(event);
   }
 }

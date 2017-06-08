@@ -1,2 +1,20 @@
 
-<p-megaMenu [model]="items"></p-megaMenu>
+<md-toolbar color="primary">
+  <!--<span>Custom Toolbar</span>-->
+  <!--[mdMenuTriggerFor] = "menu" left side is the property and the exprssion to bind to in quotes on right-->
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    Toggle Nav
+  </button>
+  <md-menu #menu="mdMenu">
+    <!--link to routes within html-->
+    <button [routerLink]="['/events']" md-menu-item>
+      <span>All Events</span>
+    </button>
+    <button [routerLink]="['/events/new']" md-menu-item>
+      <span>Create Event</span>
+    </button>
+    <button md-menu-item>
+      <span>3</span>
+    </button>
+  </md-menu>
+</md-toolbar>

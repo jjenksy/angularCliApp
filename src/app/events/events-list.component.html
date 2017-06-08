@@ -5,9 +5,9 @@
 <h1>Upcoming events</h1>
 <hr>
 <app-event-thumbnail
+  *ngFor="let event of events"
   #thumbnail
-  (eventClick)="handleEventClicked($event)"
-  [event]="event1">
+  [event]="event">
 
 </app-event-thumbnail>
 <!--test for template variable-->
